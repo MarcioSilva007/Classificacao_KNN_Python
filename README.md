@@ -1,64 +1,56 @@
 # Classificacao_KNN_Python
 
-📝 Classificação de Dígitos Escritos à Mão com KNN
-Este projeto utiliza o algoritmo K-Nearest Neighbors (K-Neighbors Classifier) para reconhecer e classificar imagens de dígitos escritos à mão (0-9). O modelo foi desenvolvido em Python, utilizando a biblioteca scikit-learn e o famoso dataset Digits.
+Aqui está uma proposta de README estruturada e profissional para o seu GitHub, baseada no código e nas análises presentes no seu arquivo KNNimg.ipynb.
 
-🚀 Visão Geral
-O objetivo principal é demonstrar o fluxo de um projeto de Machine Learning, passando pela análise exploratória, pré-processamento (normalização), divisão de dados, otimização de hiperparâmetros (K) e avaliação de performance com métricas reais.
+📝 Classificação de Dígitos com K-Nearest Neighbors (KNN)
+Este projeto apresenta a implementação e otimização de um modelo de Machine Learning utilizando o algoritmo KNN (K-Nearest Neighbors) para o reconhecimento de dígitos manuscritos, utilizando o conjunto de dados Digits do scikit-learn.
 
-📊 O Dataset
-O dataset contém 1.797 amostras de imagens 8x8 de dígitos. Cada pixel é um atributo (totalizando 64 atributos por imagem) com valores de intensidade de 0 a 16.
+🚀 Visão Geral do Projeto
+O objetivo é classificar imagens de baixa resolução (8x8 pixels) em categorias de 0 a 9. O projeto cobre desde a análise exploratória e visualização dos dados até a normalização, ajuste de hiperparâmetros e validação final do modelo.
 
 🛠️ Tecnologias Utilizadas
-Python 3
+Python 3.x.
 
-Scikit-Learn: Criação do modelo, métricas e divisão de dados.
+Scikit-Learn: Para carregamento do dataset, divisão de dados (train_test_split), métricas e o modelo KNN.
 
-NumPy: Manipulação matemática e normalização.
+NumPy: Para manipulação de matrizes e cálculos de normalização.
 
-Matplotlib/Seaborn: Visualização de dados e matriz de confusão.
+Matplotlib & Seaborn: Para visualização de dados, exibição de imagens e plotagem da matriz de confusão.
 
-Jupyter Notebook: Ambiente de desenvolvimento.
+📈 Etapas de Desenvolvimento
+1. Exploração e Visualização
+O dataset contém 1.797 amostras com 64 atributos cada. Foi realizada a visualização das primeiras amostras para entender a representação dos números em escala de cinza.
 
-📈 Etapas do Projeto
-Exploração: Visualização das matrizes de pixels como imagens.
+2. Pré-processamento e Divisão
+Divisão de Dados: Os dados foram segmentados em Treino (1.131 amostras), Validação (126 amostras) e Teste (540 amostras).
 
-Preparação:
+Normalização: Foi aplicada a centralização dos dados subtraindo a média (X_norm) de todos os conjuntos para melhorar a eficiência do algoritmo de distância.
 
-Divisão em Treino (70%), Validação (10%) e Teste (20%).
+3. Otimização do Hiperparâmetro K
+Foi realizado um teste iterativo com valores ímpares de K (de 1 a 30) para identificar qual oferecia a melhor acurácia no conjunto de validação.
 
-Normalização dos dados subtraindo a média (Centralização).
+Resultado: O valor K=5 obteve 100% de acurácia nos dados de validação.
 
-Otimização: Execução de um loop para encontrar o melhor valor de K.
+4. Avaliação de Performance
+O modelo final foi testado com dados inéditos (conjunto de teste), apresentando:
 
-Resultado: O valor K=5 atingiu a maior acurácia nos dados de validação.
+Acurácia Global: 98%.
 
-Avaliação:
+Métricas detalhadas: Relatório de classificação com precision, recall e f1-score para cada dígito.
 
-Uso de Matriz de Confusão para identificar onde o modelo confunde números (ex: 8 com 1).
+Análise de Erros: Matriz de Confusão visual (Heatmap) para identificar falsos positivos e negativos.
 
-Geração de Relatório de Classificação (Precision, Recall, F1-Score).
+5. Predição em Novos Dados
+O projeto inclui uma etapa de predição funcional, onde o modelo recebe um novo vetor de pixels, realiza a normalização e retorna a classe prevista.
 
-🏆 Resultados
-O modelo final alcançou uma performance excelente nos dados de teste:
+Exemplo: Ao receber um novo dígito, o modelo previu corretamente a classe correspondente.
 
-Acurácia Global: ~98%
+🏆 Resultados Finais
+O modelo demonstrou alta robustez, mantendo uma precisão de 100% para os dígitos 0, 2 e 6, e mínima confusão em dígitos mais complexos como o 8.
 
-Melhor K: 5
+📂 Como Executar
+Clone este repositório.
 
-Destaque: O modelo demonstrou alta precisão para quase todos os dígitos, com uma leve dificuldade em distinguir o dígito '8' de outros similares em casos específicos.
+Certifique-se de ter as bibliotecas instaladas: pip install scikit-learn numpy matplotlib seaborn.
 
-🖼️ Exemplo de Previsão
-O notebook inclui uma seção de testes com imagens aleatórias do conjunto de teste, onde o modelo exibe o dígito e sua "crença" (predição):
-
-Python
-# Exemplo de saída do modelo
-Eu acredito que esse seja: 5
-📂 Como executar
-Clone o repositório: git clone https://github.com/seu-usuario/nome-do-repo.git
-
-Instale as dependências: pip install -r requirements.txt
-
-Abra o arquivo KNNimg.ipynb em seu ambiente Jupyter.
-
-⭐ Se este projeto te ajudou, sinta-se à vontade para dar uma estrela!
+Execute o notebook KNNimg.ipynb.
